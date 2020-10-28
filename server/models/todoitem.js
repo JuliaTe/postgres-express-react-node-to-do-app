@@ -19,3 +19,9 @@ module.exports = (sequelize, DataTypes) => {
 
   return TodoItem;
 };
+
+Tutorial.hasMany(Comment, { as: "comments" });
+Comment.belongsTo(Tutorial, {
+  foreignKey: "tutorialId",
+  as: "tutorial",
+});
